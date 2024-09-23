@@ -77,10 +77,12 @@ php bin/console doctrine:migrations:migrate
 ```
 php bin/console tailwind:build
 ```
+![alt text](readme-tailwind-build.png)
 
 ### Access the Application
 
 Visit http://symfony.local or http://localhost in your web browser.
+![alt text](readme-product-index.png)
 
 ## Contributing
 
