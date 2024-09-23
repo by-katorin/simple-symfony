@@ -98,18 +98,11 @@ class Product
         return $this->created_at;
     }
 
-    // public function setCreatedAt(): self
-    // {
-    //     $this->created_at = new \DateTime();
-
-    //     return $this;
-    // }
-
-    #[ORM\PrePersist]
-    public function setCreatedAtValue(): void
+    public function setCreatedAt(?\DateTimeInterface $created_at): static
     {
-        $this->created_at = new \DateTimeImmutable();
-        $this->setUpdatedAtValue();
+        $this->created_at = $created_at;
+
+        return $this;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface
@@ -117,16 +110,10 @@ class Product
         return $this->updated_at;
     }
 
-    // public function setUpdatedAt(): self
-    // {
-    //     $this->updated_at = new \DateTime();
-
-    //     return $this;
-    // }
-
-    #[ORM\PreUpdate]
-    public function setUpdatedAtValue(): void
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): static
     {
-        $this->updated_at = new \DateTimeImmutable();
+        $this->updated_at = $updated_at;
+
+        return $this;
     }
 }

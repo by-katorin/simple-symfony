@@ -1,20 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Product{% endblock %}
+{% block title %}Create New Product{% endblock %}
 
 {% block body %}
     <div class="grid gap-4 mb-5 sm:grid-cols-2 rounded-t border-b sm:mb-5 dark:border-gray-600">
         <div class="flex justify-between items-center pb-4">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Edit Product</h3>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Create New Product</h3>
         </div>
         <div class="flex items-center justify-end">
             <a href={{ path('app_product_index') }}
                 class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                 Back to Products list
             </a>
-            {{ include('product/_delete_form.html.twig') }}
         </div>
     </div>
 
-    {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('product/_form.html.twig', {'button_label': 'Create'}) }}
 {% endblock %}
