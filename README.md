@@ -28,17 +28,19 @@ Make sure to input necessary values to the following environment variable
 ```
 DATABASE_URL=mysql://symfony:secret@db:3306/symfony?serverVersion=8.3.0
 ```
+> Note: `db:3360` is the service name (and port) defined in the .docker/docker-compose.yml file for database MySQL container, while `symfony` is the MySQL user with the password `secret`. The last `symfony` is the MySQL database name.
+
 Go to `.docker/` directory
 ```
 cd .docker
 cp .env.example .env
 cp .env.nginx .env.nginx.local
 ```
-Add value to `NGINX_BACKEND_DOMAIN` variable
+Add value to `NGINX_BACKEND_DOMAIN` variable in the copied file
 ```
-NGINX_BACKEND_DOMAIN='symfony.local'
+NGINX_BACKEND_DOMAIN='symfony.local' # anything you prefer
 ```
-Modify your `hosts` file accordingly
+Modify your OS `hosts` file accordingly
 ```
 127.0.0.1   symfony.local
 ```
@@ -60,7 +62,7 @@ docker compose exec php bash
 composer install
 ```
 
-### Run Database Migrations and Seeders
+### Run Database Migrations
 ```
 docker compose exec php bash
 ```
