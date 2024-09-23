@@ -1,6 +1,6 @@
-# Product CRUD
+# Symfony Product CRUD
 
-This web application is designed to manage products using a basic CRUD (Create, Read, Update, Delete) interface. It's built with **Symfony 7** framework, leverages **Docker** for containerization, and uses **Twig** for templating with **Tailwind CSS** for styling.
+This web application is designed to manage products using a basic CRUD (Create, Read, Update, Delete) interface. This project is built using **[Symfony 7](https://symfony.com/7)** framework, utilizes **Docker** for containerization, and uses **Twig** for templating with **Tailwind CSS** for styling.
 
 ## Key Features
 
@@ -24,61 +24,61 @@ git clone https://github.com/by-katorin/symfony-dockerized.git
 ```
 cp .env.example .env
 ```
-Make sure to input necessary values to the following environment variables
+Make sure to input necessary values to the following environment variable
 ```
-PROJECT_NAME=simpleuser
-
-DB_ROOT_PASSWORD=root
-DB_DATABASE=simpleuser
-DB_USERNAME=simpleuser
-DB_PASSWORD=password
-
-# Can be populated later
-DB_CONNECTION=mysql 
-DB_HOST=mysql
-DB_PORT=3306
+DATABASE_URL=mysql://symfony:secret@db:3306/symfony?serverVersion=8.3.0
+```
+Go to `.docker/` directory
+```
+cd .docker
+cp .env.example .env
+cp .env.nginx .env.nginx.local
+```
+Add value to `NGINX_BACKEND_DOMAIN` variable
+```
+NGINX_BACKEND_DOMAIN='symfony.local'
+```
+Modify your `hosts` file accordingly
+```
+127.0.0.1   symfony.local
 ```
 
 ### Build Docker Containers
 ```
-cd simple-user-management
+cd .docker
 docker compose build
 docker compose up -d
 ```
 
 ### Install Dependencies
 
+Inside `php` container, install dependencies using Composer
 ```
-php artisan key:generate
-php artisan storage:link
+docker compose exec php bash
 ```
-> Note: Though these commands are already ran in `Dockerfile` (php and node), you can re-run them if new libraries/packages are installed.
 ```
-# Backend
 composer install
-
-# Frontend
-npm install
 ```
 
 ### Run Database Migrations and Seeders
 ```
-docker compose exec php sh
-php artisan migrate
-php artisan db:seed
+docker compose exec php bash
+```
+```
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
 ```
 
 ## Usage
 
-### Start the Development server
-
-Dev server is already ran inside `node` container. No need to explicitly run `npm run dev`.
-
-> Note: Please be advised that running this project on a Windows-based system may result in slower performance due to the limitations of the Windows Subsystem for Linux (WSL). If you are using Windows, I recommend to run `npm run dev` outside of the Docker container with Node.js and npm installed.
+### Build Tailwind CSS
+```
+php bin/console tailwind:build
+```
 
 ### Access the Application
 
-Visit http://localhost in your web browser.
+Visit http://symfony.local or http://localhost in your web browser.
 
 ## Contributing
 
@@ -91,5 +91,5 @@ Contributions are welcome! Please follow these guidelines:
 
 ## Additional Notes
 
-- For more information on Laravel Breeze, Inertia.js, and Vue.js, please refer to their official documentation.
+- For more information on Symfony, Tailwind CSS, and Docker, please refer to their official documentation.
 - Customize the project to fit your specific needs by adding more features or modifying the existing ones.
