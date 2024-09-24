@@ -81,7 +81,7 @@ php bin/console tailwind:build
 
 ### Access the Application
 
-Visit http://symfony.local or http://localhost in your web browser.
+Visit http://symfony.local/product or http://localhost/product in your web browser.
 ![alt text](readme-product-index.png)
 
 ## Contributing
