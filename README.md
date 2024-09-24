@@ -2,7 +2,7 @@
 
 This web application is designed to manage products using a basic CRUD (Create, Read, Update, Delete) interface. This project is built using **[Symfony 7](https://symfony.com/7)** framework, utilizes **Docker** for containerization, and uses **Twig** for templating with **Tailwind CSS** for styling.
 
-## Key Features
+## Technologies Used
 
 - **Symfony 7**: A modern PHP framework providing a robust foundation for web applications.
 - **Docker**: A platform for building, shipping, and running applications in containers.
