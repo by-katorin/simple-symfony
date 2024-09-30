@@ -79,9 +79,12 @@ php bin/console tailwind:build
 ```
 ![alt text](readme-tailwind-build.png)
 
+> Note: If you want to watch for any file changes while running Docker with Windows host, use `php bin/console tailwind:build --watch --poll`. More information [here](https://symfony.com/bundles/TailwindBundle/current/index.html#watch-mode-in-docker-with-windows-host).
+
 ### Access the Application
 
 Visit http://symfony.local/product or http://localhost/product in your web browser.
+
 ![alt text](readme-product-index.png)
 
 ## Contributing
