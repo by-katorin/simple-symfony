@@ -17,7 +17,7 @@ This web application is designed to manage products using a basic CRUD (Create, 
 
 ### Clone the Repository
 ```
-git clone https://github.com/by-katorin/symfony-dockerized.git
+git clone https://github.com/by-katorin/simple-symfony.git
 ```
 
 ### Make Initial Setup
